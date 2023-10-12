@@ -1,0 +1,12 @@
+# LOGGING
+logging:
+  level:
+    root: info
+
+swagger:
+  config:
+    terms-of-service-url: http://huclele.tk/
+
+knife4j:
+  enable: true
+  production: true

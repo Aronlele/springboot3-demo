@@ -1,0 +1,56 @@
+# SPRING BOOT PROPERTIES
+spring:
+  # IDENTITY (ContextIdApplicationContextInitializer)
+  application:
+    name: springboot3-demo
+
+  # PROFILES
+  profiles:
+    active: dev
+
+  # JMX
+  jmx:
+    enabled: false
+
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+
+# ----------------------------------------
+# WEB PROPERTIES
+# ----------------------------------------
+server:
+  port: 8080
+  shutdown: graceful
+
+# ----------------------------------------
+# ACTUATOR PROPERTIES
+# ----------------------------------------
+# MANAGEMENT HTTP SERVER (ManagementServerProperties)
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  # ENDPOINTS WEB CONFIGURATION (WebEndpointProperties)
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: tk.huclele.demo
+  default-flat-param-object: true
+
