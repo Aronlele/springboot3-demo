@@ -18,7 +18,7 @@ public record ExampleRequestRecordDto(
         String requestUrl,
         @Schema(description = "平台")
         String platform,
-        @Schema(description = "目的地")
+        @Schema(description = "目的地", allowableValues = {"beijing", "shanghai"})
         @OnlySpecifyValue(strValues = {"beijing", "shanghai"})
         String destination) implements Serializable {
 }
